@@ -9,12 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.course_proj.plank_hero.invite_ballte"></activity>
-        <activity android:name="com.course_proj.plank_hero.start_battle" />
-        <activity android:name="com.course_proj.plank_hero.plank_exercise" />
-        <activity android:name="com.course_proj.plank_hero.plank_content" />
+        <activity android:name=".fill_info"></activity>
+        <activity android:name=".main_page" />
+        <activity android:name=".invite_ballte" />
+        <activity android:name=".start_battle" />
+        <activity android:name=".plank_exercise" />
+        <activity android:name=".plank_content" />
         <activity
-            android:name="com.course_proj.plank_hero.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

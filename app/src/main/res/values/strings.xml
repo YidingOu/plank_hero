@@ -33,7 +33,43 @@
     <string name="ongoing">Ongoing</string>
     <string name="history">History</string>
     <string name="ranking">Ranking</string>
-    <string name="title_activity_start_battle">start_battle</string>
+    <string name="challenge">Challenge</string>
+    <string name="account">Account</string>
+    <string name="plank_challenge">Plank Challenge</string>
+    <string name="continue_without_an_account">continue without an account </string>
+    <string name="upload_profile_pic">Upload/Take Profile Picture</string>
+    <string name="create_a_profile">\t Create A Profile</string>
+    <string name="password">Password</string>
 
+    <string name="next">Next</string>
+    <string name="email_address">Email Address</string>
+    <string name="nick_name">Nick Name</string>
+    <string name="skip">SKIP</string>
+    <string name="your_height">Your Height:</string>
+    <string name="your_weight">Your Weight:</string>
+    <string name="your_experience_with_plank">Your Experience with Plank:</string>
+    <string name="boy">Boy</string>
+    <string name="girl">Girl</string>
+    <string name="to_measure_your_workout">To measure your workout result, please tell us: </string>
+    <string name="login_with_fb">LOG IN WITH FACEBOOK</string>
+    <string name="login_with_google">LOG IN WITH GOOGLE</string>
+    <string name="create_an_account">CREATE AN ACCOUNT</string>
+    <string name="timer">Timer</string>
+    <string name="minutes">Minutes</string>
+    <string name="seconds">Seconds</string>
+    <string name="free_mode">Free Mode</string>
+    <string name="video_recording">VIDEO RECORDING</string>
+    <string name="learn_your_device">Lean your device against a stable surface to record your workout. You can use the recording to adjust your workout.</string>
+    <string name="enable_recording">ENABLE RECORDING</string>
+    <string name="say_start">\t\t\t Voice Command: \n Say START, PAUSE, STOP \n \t \t \t to control the timer</string>
+    <string name="start">START</string>
+    <string name="finish">FINISH</string>
+    <string name="pause">PAUSE</string>
+    <string name="num1">01</string>
+    <string name="num2">02</string>
+    <string name="num3">03</string>
+    <string name="num25">25</string>
+    <string name="num30">30</string>
+    <string name="num35">35</string>
 </resources>
 

@@ -5,6 +5,10 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorGreen">#64FFDA</color>
 
+    <color name="colorLightGreen">#8BC34A</color>
+    <color name="colorLightGrey">#858383</color>
+    <color name="colorNewGreen">#009688</color>
+
     <!-- Switch Colors-->
     <color name="disable_forground_grey">#4E5251</color>
     <color name="disable_thumb_grey">#D6D6D6</color>
