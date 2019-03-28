@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_workout"
+        android:icon="@drawable/workouticon"
+        android:title="Workout"
+        tools:icon="@drawable/workout_clicked" />
+
+    <item
+        android:id="@+id/navigation_challenge"
+        android:icon="@drawable/battleicon"
+        android:title="Ballte"
+        tools:icon="@drawable/battle_clicked" />
+
+    <item
+        android:id="@+id/navigation_scoreboard"
+        android:icon="@drawable/scoreboardicon"
+        android:title="Score"
+        tools:icon="@drawable/scoreboard_clicked" />
+    <item
+        android:id="@+id/navigation_account"
+        android:icon="@drawable/accounticon"
+        android:title="Account"
+        tools:icon="@drawable/account_clicked" />
+
+</menu>

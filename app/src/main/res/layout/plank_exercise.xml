@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <android.support.design.widget.BottomNavigationView
+        android:id="@+id/bottomNavigationView"
+        android:layout_width="0dp"
+        android:layout_height="70dp"
+        android:background="#323232"
+        app:labelVisibilityMode="labeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:menu="@menu/navigation" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="412dp"
+        android:layout_height="480dp"
+        android:layout_marginTop="192dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavigationView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/forearem_plank"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@drawable/plank1"
+            android:fontFamily="sans-serif-smallcaps"
+            android:lineSpacingExtra="14sp"
+            android:paddingLeft="20dp"
+            android:paddingTop="0dp"
+            android:text="@string/forearm_plank"
+            android:textAlignment="textStart"
+            android:textAllCaps="false"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/high_plank"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@drawable/plank2"
+            android:fontFamily="sans-serif-smallcaps"
+            android:lineSpacingExtra="14sp"
+            android:paddingLeft="20dp"
+            android:paddingTop="0dp"
+            android:text="@string/high_plank"
+            android:textAlignment="textStart"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/chair_side_plank"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            android:background="@drawable/plank3"
+            android:fontFamily="sans-serif-smallcaps"
+            android:lineSpacingExtra="14sp"
+            android:paddingLeft="20dp"
+            android:paddingTop="0dp"
+            android:text="@string/chair_side_plank"
+            android:textAlignment="textStart"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/plank_excrise_title"
+        android:layout_width="275dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="101dp"
+        android:layout_marginTop="64dp"
+        android:layout_marginEnd="102dp"
+        android:layout_marginBottom="71dp"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="@string/plank_exercise"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+</android.support.constraint.ConstraintLayout>

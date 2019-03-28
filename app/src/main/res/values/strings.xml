@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Plank Hero</string>
+    <string name="best_record">Best Record \n \n 58\'\'</string>
+    <string name="my_goal">My Goal \n \n 1\'30\'\'</string>
+    <string name="total_time">Total Time \n \n 3\'28\'\'</string>
+    <string name="exercise_mode">EXERCISE MODE</string>
+    <string name="send_challenge">SEND PLANK \n CHALLENGE</string>
+    <string name="plank_exercise">Plank Exercise</string>
+    <string name="forearm_plank"> Forearm Plank\nBeginner</string>
+    <string name="high_plank">High Plank\nIntermediate</string>
+    <string name="chair_side_plank">Chair Side Plank\nAdvanced</string>
+    <string name="set_timer">SET TIMER</string>
+    <string name="forearm_tips">Tips: \n\nPlace your forearms on the ground with the elbows aligned below the shoulders, and arms parallel to the body at about shoulder-width distance.\n \nGround the toes into the floor and squeeze the glutes to stabilize the body.\n\nBreath naturally and make sure your head, shoulder, back, hip, and ankles are in line.</string>
+    <string name="forearm_tips_title">Forearm Plank</string>
+    <string name="title_activity_plank_content">plank_content</string>
+    <string name="title_greeting">Hello Amber\n</string>
+    <string name="profile">profile</string>
+    <string name="forearm_tutor">Forearm Tutor</string>
+    <string name="start_a_battle">START A BATTLE</string>
+    <string name="no_ongoing_battle">No ongoing battle. \n Start one right now</string>
+    <string name="battle_invite">BATTLE INVITE</string>
+    <string name="combat_type">Combat Type</string>
+    <string name="response_time">Response Time</string>
+    <string name="choose_opponent">Choose Opponent:</string>
+    <string name="select_all">Select All</string>
+    <string name="ashley">Ashley</string>
+    <string name="jeremy">Jeremy</string>
+    <string name="daming">Daming</string>
+    <string name="neha">Neha</string>
+    <string name="publish_results">Publish Results: </string>
+    <string name="your_mutual_friends_can_view">Your mutual friends can view the combat result </string>
+    <string name="start_now">START NOW</string>
+    <string name="ongoing">Ongoing</string>
+    <string name="history">History</string>
+    <string name="ranking">Ranking</string>
+    <string name="title_activity_start_battle">start_battle</string>
+
+</resources>
+

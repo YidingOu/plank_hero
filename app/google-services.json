@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "602615750871",
+    "firebase_url": "https://plank-hero-e6197.firebaseio.com",
+    "project_id": "plank-hero-e6197",
+    "storage_bucket": "plank-hero-e6197.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:602615750871:android:11600e73ad6e0396",
+        "android_client_info": {
+          "package_name": "com.course_proj.plank_hero"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "602615750871-k2un1f51ag0d5gjbicfkve30rkb0p862.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.course_proj.plank_hero",
+            "certificate_hash": "6ae310dbac9ac3526c12088571587847273a5c1f"
+          }
+        },
+        {
+          "client_id": "602615750871-r11sfqnoaa14eggr42fstngj56a4b4as.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD9ALfxRjJjF-GLo2yZnGc2teGzjmntzS4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "602615750871-r11sfqnoaa14eggr42fstngj56a4b4as.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
