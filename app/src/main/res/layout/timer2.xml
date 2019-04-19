@@ -39,23 +39,23 @@
         android:id="@+id/next"
         android:layout_width="120dp"
         android:layout_height="57dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginEnd="144dp"
+        android:layout_marginBottom="88dp"
         android:background="#9F9F9F"
-        android:text="@string/finish"
 
+        android:text="@string/finish"
         android:textColor="#4E4D4D"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button4" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ProgressBar
         android:id="@+id/progressBarCircle"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="159dp"
-        android:layout_height="180dp"
+        android:layout_height="178dp"
         android:layout_centerInParent="true"
         android:layout_marginBottom="30dp"
         android:indeterminate="false"
@@ -63,40 +63,47 @@
         android:progress="100"
         android:progressDrawable="@drawable/drawable_circle_green"
         android:rotation="-90"
-        app:layout_constraintBottom_toTopOf="@+id/button4"
+        app:layout_constraintBottom_toTopOf="@+id/next"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button4"
-        android:layout_width="120dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginBottom="60dp"
-        android:background="#9F9F9F"
-        android:text="@string/pause"
-        android:textColor="#4E4D4D"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/next"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <TextView
-        android:id="@+id/textView16"
+        android:id="@+id/countDown_start"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
+        android:background="@android:color/transparent"
         android:text="@string/start"
-        android:textStyle="bold"
 
         android:textColor="@color/colorGreen"
         android:textSize="24sp"
+        android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/progressBarCircle"
         app:layout_constraintEnd_toStartOf="@+id/progressBarCircle"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/progressBarCircle"
         app:layout_constraintTop_toBottomOf="@+id/progressBarCircle" />
 
+    <TextView
+        android:id="@+id/timer_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="100dp"
+        android:text="00:00"
+        android:textColor="@color/colorGreen"
+        android:textSize="50sp"
+
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/progressBarCircle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pic1"
+        app:layout_constraintVertical_bias="1.0"
+        tools:text="1:30" />
 </android.support.constraint.ConstraintLayout>

@@ -48,6 +48,14 @@ public class MainActivity extends Activity {
                 startActivity(intent);
             }
         });
+
+        google.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, main_page.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".fill_info"></activity>
+        <activity android:name=".settimer"></activity>
+        <activity android:name=".timer2" />
+        <activity android:name=".fill_info" />
         <activity android:name=".main_page" />
         <activity android:name=".invite_ballte" />
         <activity android:name=".start_battle" />
