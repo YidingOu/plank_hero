@@ -14,9 +14,10 @@ public class timer2 extends Activity {
     private TextView countDownText;
     private Button countDownButton;
     private CountDownTimer timer;
-    private long milliscd = 90000;
+    private long milliscd;
     private boolean timerRunning;
     private ProgressBar pb;
+    private String time;
 
 
     @Override
@@ -26,6 +27,12 @@ public class timer2 extends Activity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.timer2);
         pb = (ProgressBar) findViewById(R.id.progressBarCircle);
+        Bundle extra = getIntent().getExtras();
+        if (extra != null) {
+            this.time = extra.getString("timer");
+        }
+        this.milliscd = 1000 * Integer.valueOf(this.time);
+
         countDownText = findViewById(R.id.timer_content);
         countDownButton = findViewById(R.id.countDown_start);
         countDownButton.setOnClickListener(new View.OnClickListener() {

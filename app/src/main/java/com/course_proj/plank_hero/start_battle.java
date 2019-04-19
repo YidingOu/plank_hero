@@ -18,8 +18,8 @@ public class start_battle extends Activity {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.battle);
-        invite_battle = (Button) findViewById(R.id.start_battle_button);
+        setContentView(R.layout.battle_2);
+        invite_battle = (Button) findViewById(R.id.start_now);
         invite_battle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

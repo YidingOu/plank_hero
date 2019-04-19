@@ -29,7 +29,7 @@ public class plank_content extends Activity {
     }
 
     private void openSetTimer() {
-        Intent intent = new Intent(plank_content.this, timer2.class);
+        Intent intent = new Intent(plank_content.this, settimer.class);
         startActivity(intent);
     }
 }

@@ -21,26 +21,27 @@
         app:menu="@menu/navigation" />
 
     <EditText
-        android:id="@+id/time_"
-        android:textColorHint="@color/colorGreen"
+        android:id="@+id/input_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="169dp"
         android:layout_marginTop="414dp"
         android:layout_marginEnd="170dp"
         android:layout_marginBottom="85dp"
-        android:hint="Input Minutes"
         android:backgroundTint="@color/colorGreen"
+        android:hint="Input Minutes"
         android:inputType="number"
         android:maxLength="4"
         android:textColor="@color/colorGreen"
+        android:textColorHint="@color/colorGreen"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/start"
+        app:layout_constraintBottom_toTopOf="@+id/start_set_timer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
     <Button
-        android:id="@+id/start"
+        android:id="@+id/start_set_timer"
         android:layout_width="220dp"
         android:layout_height="55dp"
         android:layout_marginStart="8dp"
