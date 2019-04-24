@@ -1,14 +1,17 @@
 package com.course_proj.plank_hero;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
+import android.provider.MediaStore;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Button;
+import java.io.*;
 
 public class timer2 extends Activity {
     private TextView countDownText;
@@ -84,5 +87,19 @@ public class timer2 extends Activity {
         timeLeft += second;
         countDownText.setText(timeLeft);
 
+    }
+
+    private void record_video(View v) {
+        Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE)
+    }
+
+    private File getFile() {
+        File folder = new File("sdcard/myfolder");
+        if (!folder.exists()) {
+            folder.mkdir();
+        }
+
+        File videoFile = new File(folder, "plank_record.mp4");
+        return videoFile;
     }
 }
