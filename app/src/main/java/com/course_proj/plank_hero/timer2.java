@@ -1,7 +1,12 @@
 package com.course_proj.plank_hero;
 
+import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.provider.MediaStore;
@@ -11,9 +16,18 @@ import android.view.WindowManager;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Button;
-import java.io.*;
+import android.hardware.Camera;
+import android.os.Bundle;
+import android.view.SurfaceHolder;
+import android.view.SurfaceView;
+import android.view.View;
+import android.widget.Button;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.app.ActivityCompat;
+import android.content.pm.PackageManager;
+import android.widget.Toast;
 
-public class timer2 extends Activity {
+public class timer2 extends Activity implements SurfaceHolder.Callback {
     private TextView countDownText;
     private Button countDownButton;
     private CountDownTimer timer;
@@ -21,6 +35,12 @@ public class timer2 extends Activity {
     private boolean timerRunning;
     private ProgressBar pb;
     private String time;
+    private static final String TAG = "Recorder";
+    public static SurfaceView mSurfaceView;
+    public static SurfaceHolder mSurfaceHolder;
+    private static final int PERMISSION_REQUEST_CODE = 200;
+
+
 
 
     @Override
@@ -29,6 +49,16 @@ public class timer2 extends Activity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.timer2);
+        if (!checkPermission()) {
+            requestPermission();
+        }
+
+
+
+        mSurfaceView = (SurfaceView)findViewById(R.id.surfaceView);
+        mSurfaceHolder = mSurfaceView.getHolder();
+        mSurfaceHolder.addCallback(this);
+        mSurfaceHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
         pb = (ProgressBar) findViewById(R.id.progressBarCircle);
         Bundle extra = getIntent().getExtras();
         if (extra != null) {
@@ -42,16 +72,85 @@ public class timer2 extends Activity {
             @Override
             public void onClick(View v) {
                 startStop();
+
             }
         });
     }
 
+    private boolean checkPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission is not granted
+            return false;
+        }
+        return true;
+    }
+
+    private void requestPermission() {
+
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.CAMERA},
+                PERMISSION_REQUEST_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+        switch (requestCode) {
+            case PERMISSION_REQUEST_CODE:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    Toast.makeText(getApplicationContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
+
+                    // main logic
+                } else {
+                    Toast.makeText(getApplicationContext(), "Permission Denied", Toast.LENGTH_SHORT).show();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                                != PackageManager.PERMISSION_GRANTED) {
+                            showMessageOKCancel("You need to allow access permissions",
+                                    new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                                                requestPermission();
+                                            }
+                                        }
+                                    });
+                        }
+                    }
+                }
+                break;
+        }
+    }
+
+    private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
+        new AlertDialog.Builder(timer2.this)
+                .setMessage(message)
+                .setPositiveButton("OK", okListener)
+                .setNegativeButton("Cancel", null)
+                .create()
+                .show();
+    }
+
+
+
     private void startStop() {
         if (timerRunning) {
             stopTimer();
+            stopRecording();
         } else {
             startTimer();
+            startRecording();
         }
+    }
+
+    private void startRecording() {
+        Intent intent = new Intent(timer2.this, RecorderService.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startService(intent);
+    }
+
+    private void stopRecording() {
+        stopService(new Intent(timer2.this, RecorderService.class));
     }
 
     private void startTimer() {
@@ -88,18 +187,19 @@ public class timer2 extends Activity {
         countDownText.setText(timeLeft);
 
     }
+    @Override
+    public void surfaceCreated(SurfaceHolder holder) {
 
-    private void record_video(View v) {
-        Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE)
     }
 
-    private File getFile() {
-        File folder = new File("sdcard/myfolder");
-        if (!folder.exists()) {
-            folder.mkdir();
-        }
-
-        File videoFile = new File(folder, "plank_record.mp4");
-        return videoFile;
+    @Override
+    public void surfaceChanged(SurfaceHolder holder, int format, int width, int height) {
     }
+
+    @Override
+    public void surfaceDestroyed(SurfaceHolder holder) {
+        // TODO Auto-generated method stub
+
+    }
+
 }

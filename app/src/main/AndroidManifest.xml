@@ -2,8 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.course_proj.plank_hero">
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
-    <uses-feature android:name="android.hardware.camera2"></uses-feature>
+    <uses-feature
+        android:name="android.hardware.camera1"
+        android:required="true" />
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
 
     <application
         android:allowBackup="true"
@@ -12,7 +16,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".settimer"></activity>
+        <service
+            android:name=".RecorderService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity android:name=".VideoPlayActivity" />
+        <activity android:name=".settimer" />
         <activity android:name=".timer2" />
         <activity android:name=".fill_info" />
         <activity android:name=".main_page" />

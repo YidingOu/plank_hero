@@ -73,5 +73,7 @@
     <string name="num35">35</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_settimer">settimer</string>
+    <string name="title_activity_video_playing">VideoPlaying</string>
+    <string name="title_activity_video_play">VideoPlayActivity</string>
 </resources>
 
