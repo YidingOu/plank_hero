@@ -21,7 +21,6 @@
             android:enabled="true"
             android:exported="true"></service>
 
-        <activity android:name=".VideoPlayActivity" />
         <activity android:name=".settimer" />
         <activity android:name=".timer2" />
         <activity android:name=".fill_info" />
