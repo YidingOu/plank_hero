@@ -75,5 +75,10 @@
     <string name="title_activity_settimer">settimer</string>
     <string name="title_activity_video_playing">VideoPlaying</string>
     <string name="title_activity_video_play">VideoPlayActivity</string>
+    <string name="logOut">1</string>
+    <string name="userName">1</string>
+    <string name="chooseImage">1</string>
+    <string name="uploadImage">1</string>
+    <string name="login_as_a_guest">1</string>
 </resources>
 

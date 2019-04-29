@@ -39,6 +39,7 @@ public class timer2 extends Activity implements SurfaceHolder.Callback {
     public static SurfaceView mSurfaceView;
     public static SurfaceHolder mSurfaceHolder;
     private static final int PERMISSION_REQUEST_CODE = 200;
+    private Button finish;
 
 
 
@@ -75,11 +76,22 @@ public class timer2 extends Activity implements SurfaceHolder.Callback {
 
             }
         });
+
+        finish = (Button) findViewById(R.id.next);
+
+        finish.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(timer2.this, VideoAlbum.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private boolean checkPermission() {
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) {
+        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
+                PackageManager.PERMISSION_GRANTED)) {
             // Permission is not granted
             return false;
         }
@@ -90,6 +102,10 @@ public class timer2 extends Activity implements SurfaceHolder.Callback {
 
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.CAMERA},
+                PERMISSION_REQUEST_CODE);
+
+        ActivityCompat.requestPermissions(this,
+                new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                 PERMISSION_REQUEST_CODE);
     }
 
