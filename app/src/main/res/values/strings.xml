@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">Plank Hero</string>
-    <string name="best_record">Best Record \n \n 58\'\'</string>
+    <string name="best_record">Best Record \n 58\'\'</string>
     <string name="my_goal">My Goal \n \n 1\'30\'\'</string>
-    <string name="total_time">Total Time \n \n 3\'28\'\'</string>
+    <string name="total_time">Total Time \n 3\'28\'\'</string>
     <string name="exercise_mode">EXERCISE MODE</string>
     <string name="send_challenge">SEND PLANK \n CHALLENGE</string>
     <string name="plank_exercise">Plank Exercise</string>
@@ -24,6 +24,21 @@
     <string name="choose_opponent">Choose Opponent:</string>
     <string name="select_all">Select All</string>
     <string name="ashley">Ashley</string>
+    <string name="chooseImage">Choose Image</string>
+    <string name="uploadImage">\t Upload Image</string>
+    <string name="lowerMyHips">\t Lower my hips</string>
+    <string name="PutForwardArms">\t Put forward my arms</string>
+    <string name="StrengthenMyBack">\t Strengthen my back</string>
+    <string name="LiftMyHips">\t Lift my hips</string>
+    <string name="LowerMyHead">\t Lower my head</string>
+    <string name="NextTime">\t Next time, remind me to: </string>
+    <string name="Save_Change">Save Changes </string>
+
+    <string name="SetReminder">Set a Reminder</string>
+    <string name="close">Set a Reminder</string>
+
+    <string name="userName">User Name</string>
+
     <string name="jeremy">Jeremy</string>
     <string name="daming">Daming</string>
     <string name="neha">Neha</string>
@@ -40,6 +55,8 @@
     <string name="upload_profile_pic">Upload/Take Profile Picture</string>
     <string name="create_a_profile">\t Create A Profile</string>
     <string name="password">Password</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="sign_in">Sign In</string>
 
     <string name="next">Next</string>
     <string name="email_address">Email Address</string>
@@ -52,7 +69,7 @@
     <string name="girl">Girl</string>
     <string name="to_measure_your_workout">To measure your workout result, please tell us: </string>
     <string name="login_with_fb">LOG IN WITH FACEBOOK</string>
-    <string name="login_with_google">LOG IN WITH GOOGLE</string>
+    <string name="login_as_a_guest">LOG IN AS A GUEST</string>
     <string name="create_an_account">CREATE AN ACCOUNT</string>
     <string name="timer">Timer</string>
     <string name="minutes">Minutes</string>
@@ -73,12 +90,9 @@
     <string name="num35">35</string>
     <string name="title_activity_main2">Main2Activity</string>
     <string name="title_activity_settimer">settimer</string>
-    <string name="title_activity_video_playing">VideoPlaying</string>
-    <string name="title_activity_video_play">VideoPlayActivity</string>
-    <string name="logOut">1</string>
-    <string name="userName">1</string>
-    <string name="chooseImage">1</string>
-    <string name="uploadImage">1</string>
-    <string name="login_as_a_guest">1</string>
+    <string name="logOut">Log Out</string>
+    <string name="facebook_app_id">272923503609638</string>
+    <string name="fb_login_protocol_scheme">fb272923503609638</string>
+
 </resources>
 
