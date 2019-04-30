@@ -1,6 +1,7 @@
 package com.course_proj.plank_hero;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
@@ -21,7 +22,7 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.VideoView;
 
-public class VideoAlbum extends AppCompatActivity {
+public class VideoAlbum extends Activity {
 
     private EditText videoPathEditor = null;
 

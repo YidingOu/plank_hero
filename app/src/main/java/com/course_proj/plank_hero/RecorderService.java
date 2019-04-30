@@ -1,7 +1,11 @@
 package com.course_proj.plank_hero;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
+
 import android.app.Service;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -10,6 +14,7 @@ import android.hardware.Camera;
 import android.hardware.Camera.Size;
 import android.media.MediaRecorder;
 import android.os.Build;
+import android.os.Environment;
 import android.os.IBinder;
 import android.util.Log;
 import android.view.SurfaceHolder;
@@ -25,6 +30,7 @@ public class RecorderService extends Service {
     private static Camera mServiceCamera;
     private boolean mRecordingStatus;
     private MediaRecorder mMediaRecorder;
+    private SimpleDateFormat formatter = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault());
 
     @Override
     public void onCreate() {
@@ -88,7 +94,10 @@ public class RecorderService extends Service {
             mMediaRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
 
             mMediaRecorder.setVideoEncoder(MediaRecorder.VideoEncoder.DEFAULT);
-//            mMediaRecorder.setOutputFile("/sdcard/video.mp4");
+            String videoFile = Environment.getExternalStorageDirectory().getPath() + "/Download/" + formatter.format(new Date()) + ".mp4";
+            System.out.println(Environment.getExternalStorageDirectory().getPath());
+            mMediaRecorder.setOutputFile(videoFile);
+            mMediaRecorder.setVideoEncodingBitRate(10000000);
             mMediaRecorder.setVideoFrameRate(30);
             mMediaRecorder.setVideoSize(mPreviewSize.width, mPreviewSize.height);
             mMediaRecorder.setPreviewDisplay(mSurfaceHolder.getSurface());
@@ -130,4 +139,4 @@ public class RecorderService extends Service {
 
 
 
-  }
+}

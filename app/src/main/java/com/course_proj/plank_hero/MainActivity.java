@@ -62,6 +62,8 @@ public class MainActivity extends AppCompatActivity {
      *              Anonymous                *
      ***************************************/
     private Button mAnonymousLoginButton;
+
+    private Button skip;
     /* *************************************
      *              Password                *
      ***************************************/
@@ -78,6 +80,16 @@ public class MainActivity extends AppCompatActivity {
         mCallBackManger = CallbackManager.Factory.create();
         LoginButton loginButton = (LoginButton) findViewById(R.id.login_button);
         loginButton.setReadPermissions("email", "public_profile");
+
+        skip = (Button)findViewById(R.id.skip_login);
+        skip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, main_page.class);
+                startActivity(intent);
+            }
+        });
+
         loginButton.registerCallback(mCallBackManger, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {

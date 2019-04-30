@@ -54,6 +54,9 @@ public class timer2 extends Activity implements SurfaceHolder.Callback {
             requestPermission();
         }
 
+        if (!checkPermission2()) {
+            requestPermission2();
+        }
 
 
         mSurfaceView = (SurfaceView)findViewById(R.id.surfaceView);
@@ -89,9 +92,16 @@ public class timer2 extends Activity implements SurfaceHolder.Callback {
     }
 
     private boolean checkPermission() {
-        if ((ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
-                != PackageManager.PERMISSION_GRANTED) && (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) !=
-                PackageManager.PERMISSION_GRANTED)) {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA)
+                != PackageManager.PERMISSION_GRANTED) {
+            // Permission is not granted
+            return false;
+        }
+        return true;
+    }
+    private boolean checkPermission2() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED) {
             // Permission is not granted
             return false;
         }
@@ -104,9 +114,14 @@ public class timer2 extends Activity implements SurfaceHolder.Callback {
                 new String[]{Manifest.permission.CAMERA},
                 PERMISSION_REQUEST_CODE);
 
+    }
+
+    private void requestPermission2() {
+
         ActivityCompat.requestPermissions(this,
                 new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE},
                 PERMISSION_REQUEST_CODE);
+
     }
 
     @Override
