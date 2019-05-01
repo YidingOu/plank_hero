@@ -95,55 +95,57 @@ public class replay extends AppCompatActivity {
 
     public void showPopup() {
 
-        AlertDialog.Builder popup = new AlertDialog.Builder(replay.this);
-        popup.setTitle("Reminder");
-
-
-        popup
-                .setPositiveButton(
-                        android.R.string.yes,
-                        new DialogInterface
-                                .OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which)
-                            {
-
-                                openTimer();
-                            }
-                        });
-
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference().child("Reminder");
-        String cur = "Lower the hip!";
-
-        /**
-        if (myRef != null) {
-            cur = "who";
-        }
-         */
-        myRef.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                for(DataSnapshot ds: snapshot.getChildren()) {
-                    reminderInfo.add(ds.getKey());
-                }
-            }
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-
-        for (String s: reminderInfo) {
-            cur = cur + s + "\t";
-        }
-
-        popup.setMessage(cur);
-
-        AlertDialog alertDialog = popup.create();
-        alertDialog.show();
-
+//        AlertDialog.Builder popup = new AlertDialog.Builder(replay.this);
+//        popup.setTitle("Reminder");
+//
+//
+//        popup
+//                .setPositiveButton(
+//                        android.R.string.yes,
+//                        new DialogInterface
+//                                .OnClickListener() {
+//
+//                            @Override
+//                            public void onClick(DialogInterface dialog,
+//                                                int which)
+//                            {
+//
+//                                openTimer();
+//                            }
+//                        });
+//
+//        database = FirebaseDatabase.getInstance();
+//        myRef = database.getReference().child("Reminder");
+//        String cur = "Lower the hip!\nStrengthen Back!";
+//
+//        /**
+//        if (myRef != null) {
+//            cur = "who";
+//        }
+//         */
+//        myRef.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(DataSnapshot snapshot) {
+//                for(DataSnapshot ds: snapshot.getChildren()) {
+//                    reminderInfo.add(ds.getKey());
+//                }
+//            }
+//            @Override
+//            public void onCancelled(DatabaseError databaseError) {
+//            }
+//        });
+//
+//        for (String s: reminderInfo) {
+//            cur = cur + s + "\t";
+//        }
+//
+//        popup.setMessage(cur);
+//
+//        AlertDialog alertDialog = popup.create();
+//        alertDialog.show();
+//
+        Intent intent = new Intent(replay.this, main_page.class);
+        startActivity(intent);
 
 
 

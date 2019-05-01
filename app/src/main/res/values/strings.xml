@@ -94,8 +94,9 @@
     <string name="facebook_app_id">272923503609638</string>
     <string name="fb_login_protocol_scheme">fb272923503609638</string>
     <string name="set_reminder">Set Reminder</string>
-    <string name="quickStart">Quick Start</string>
+    <string name="quickStart">Reminder</string>
     <string name="ok">OK</string>
+    <string name="back">BACK</string>
 
 
 </resources>
