@@ -116,7 +116,13 @@ public class replay extends AppCompatActivity {
 
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference().child("Reminder");
+        String cur = "Lower the hip!";
 
+        /**
+        if (myRef != null) {
+            cur = "who";
+        }
+         */
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
@@ -129,7 +135,6 @@ public class replay extends AppCompatActivity {
             }
         });
 
-        String cur = "Lower the hip!";
         for (String s: reminderInfo) {
             cur = cur + s + "\t";
         }

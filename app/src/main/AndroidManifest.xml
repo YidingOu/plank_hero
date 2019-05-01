@@ -21,6 +21,8 @@
             android:enabled="true"
             android:exported="true"></service>
         <activity android:name=".settimer" />
+        <activity android:name=".replay" />
+
         <activity android:name=".timer2" />
         <activity android:name=".fill_info" />
         <activity android:name=".main_page" />

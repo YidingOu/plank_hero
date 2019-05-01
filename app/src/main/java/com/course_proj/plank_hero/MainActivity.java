@@ -108,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d(TAG, "facebook:onError");
             }
         });
+
         /* *************************************
          *              Anonymous                *
          ***************************************/

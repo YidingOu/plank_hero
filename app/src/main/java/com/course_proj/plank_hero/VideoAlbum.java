@@ -33,6 +33,7 @@ public class VideoAlbum extends Activity {
     private Button stopVideoButton = null;
 
     private Button pauseVideoButton = null;
+    private Button setReminder;
 
     private Button continueVideoButton = null;
 
@@ -72,6 +73,14 @@ public class VideoAlbum extends Activity {
 
         // Init this example used video components.
         initVideoControls();
+
+        setReminder = (Button) findViewById(R.id.set_reminde);
+        setReminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(VideoAlbum.this, replay.class);
+                startActivity(intent);            }
+        });
 
         // When user input video file url in the video file path edittext input text box.
         videoPathEditor.setOnKeyListener(new View.OnKeyListener() {
@@ -398,6 +407,7 @@ public class VideoAlbum extends Activity {
         }
     }
 
+
     /* Run this method after user choose grant read external storage permission or not. */
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
@@ -436,5 +446,11 @@ public class VideoAlbum extends Activity {
                 });
             }
         });
+    }
+
+
+    private void openReplay() {
+        Intent intent = new Intent(VideoAlbum.this, replay.class);
+        startActivity(intent);
     }
 }

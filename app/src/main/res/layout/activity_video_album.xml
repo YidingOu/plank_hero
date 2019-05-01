@@ -57,20 +57,26 @@
             android:layout_height="wrap_content"
             android:text="Replay Video"
             android:enabled="false"/>
-
+        <Button
+            android:id="@+id/set_reminde"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Set Reminder"
+            android:textColor="@android:color/black"
+            />
         <ProgressBar
             android:id="@+id/play_video_progressbar"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:max="100"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
         <VideoView
             android:id="@+id/play_video_view"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="invisible"/>
+            android:visibility="invisible" />
 
 
     </LinearLayout>

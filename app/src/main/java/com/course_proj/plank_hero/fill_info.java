@@ -88,6 +88,7 @@ public class fill_info extends AppCompatActivity {
         weight = (EditText) findViewById(R.id.inputWeight);
         name = (EditText) findViewById(R.id.inputName);
 
+
         String nameString = height.getText().toString();
         showText(nameString);
         rdbtnMale.setOnClickListener(new View.OnClickListener() {
