@@ -14,14 +14,12 @@
         android:layout_width="405dp"
         android:layout_height="156dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="60dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/tutorial"
         app:layout_constraintBottom_toTopOf="@+id/pic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/pic"
@@ -29,14 +27,14 @@
         android:layout_height="156dp"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
-        android:layout_marginBottom="95dp"
-        android:background="@drawable/tutorial"
-        app:layout_constraintBottom_toTopOf="@+id/start"
+        android:layout_marginBottom="28dp"
+        android:background="@drawable/exercisemode"
+        app:layout_constraintBottom_toTopOf="@+id/set_reminder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/start"
+        android:id="@+id/set_reminder"
         android:layout_width="249dp"
         android:layout_height="32dp"
         android:layout_below="@+id/lowerMyHeadC"
@@ -44,24 +42,24 @@
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="20dp"
         android:background="@color/colorGreen"
-        android:text="@string/Save_Change"
+        android:text="@string/set_reminder"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/startNow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/startNow"
         android:layout_width="249dp"
         android:layout_height="32dp"
         android:layout_below="@+id/lowerMyHeadC"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="176dp"
+        android:layout_marginBottom="50dp"
         android:background="@color/colorGreen"
-        android:text="@string/Save_Change"
+        android:text="@string/start"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,12 +71,15 @@
         android:id="@+id/textView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="39dp"
-        android:text="TextView"
+        android:layout_marginBottom="10dp"
+        android:text="@string/quickStart"
         android:textColor="@android:color/white"
+
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/pic1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
