@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class reminder extends AppCompatActivity {
+
     CheckBox mlowerHipCheckBox;
     CheckBox mputForwardCheckBox;
     CheckBox mStrengthenThenCheckBox;
@@ -22,26 +23,28 @@ public class reminder extends AppCompatActivity {
     FirebaseAuth mAuth;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.fill_info);
+        setContentView(R.layout.reminder);
+
         mlowerHipCheckBox = findViewById(R.id.lowerHipC);
         mputForwardCheckBox = findViewById(R.id.putForwardArmC);
         mStrengthenThenCheckBox = findViewById(R.id.strengthenBackC);
         mLiftMyHipCheckBox = findViewById(R.id.liftMyHipC);
         mlowerMyHeadThirdCheckBox = findViewById(R.id.lowerMyHeadC);
-        saveButton = findViewById(R.id.saveChange);
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+        saveButton = (Button) findViewById(R.id.saveChange);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String reminderInfo = mAuth.getCurrentUser().getUid();
-                DatabaseReference reminderDB = mDatabase.child(reminderInfo);
+
+                DatabaseReference reminderDB = mDatabase.child("Reminder");
 
                 if(mlowerHipCheckBox.isChecked()) {
                     reminderDB.child("1").setValue("Lower Hip");
@@ -63,13 +66,16 @@ public class reminder extends AppCompatActivity {
                     reminderDB.child("5").setValue("Lower Head");
                 }
 
-                Intent interestIntent = new Intent(reminder.this, settimer.class);
-                interestIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-                startActivity(interestIntent);
+                openReplay();
+
             }
         });
 
     }
 
+    public void openReplay() {
+        Intent intent = new Intent(reminder.this, replay.class);
+        startActivity(intent);
+    }
 }
 
