@@ -1,16 +1,24 @@
 package com.course_proj.plank_hero;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Layout;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
 import android.widget.TextView;
 
 import com.google.firebase.database.ChildEventListener;
@@ -23,11 +31,19 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class replay extends AppCompatActivity {
-    private Button start;
+    private Button setReminder;
+
+    /** Retrieve data
+     */
     private ListView listView;
-    private DatabaseReference databaseReference;
-    private Dialog myDialog;
-    private ArrayList<String> mUserName = new ArrayList<>();
+    private FirebaseDatabase database;
+    private  DatabaseReference myRef;
+    private ArrayList<String> reminderInfo = new ArrayList<String>();
+
+    /**
+     * Pop up
+     */
+    private Button start;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,52 +52,100 @@ public class replay extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.replay);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("Reminder");
-        Object ans;
-        myDialog = new Dialog(this);
-        listView = (ListView) findViewById(R.id.newListView);
-        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1);
-        listView.setAdapter(arrayAdapter);
-        databaseReference.addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-                String value = dataSnapshot.getValue(String.class);
-                mUserName.add(value);
-                arrayAdapter.notifyDataSetChanged();
-            }
-            @Override
-            public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-            }
+        /**
+         * set content
+         */
 
-            @Override
-            public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
-            }
 
-            @Override
-            public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
 
-            }
-        });
 
-    }
-
-    public void showPopup(View v) {
-        TextView txtclose;
-        Button btnFollow;
-        myDialog.setContentView(R.layout.custompopup);
-        txtclose = (TextView) myDialog.findViewById(R.id.close);
-        txtclose.setOnClickListener(new View.OnClickListener() {
+        start = (Button) findViewById(R.id.startNow);
+        start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                myDialog.dismiss();
+                showPopup();
             }
         });
-        myDialog.show();
+
+
+        /**
+         * Set Reminder
+         */
+        setReminder = (Button) findViewById(R.id.set_reminder);
+        setReminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openReminder();
+            }
+        });
+
+        /**
+         * Set pop up
+         */
+
+
+    }
+
+    public void openReminder() {
+        Intent intent = new Intent(replay.this, reminder.class);
+        startActivity(intent);
     }
 
 
+    public void showPopup() {
+
+        AlertDialog.Builder popup = new AlertDialog.Builder(replay.this);
+        popup.setTitle("Reminder");
+
+
+        popup
+                .setPositiveButton(
+                        android.R.string.yes,
+                        new DialogInterface
+                                .OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog,
+                                                int which)
+                            {
+
+                                openTimer();
+                            }
+                        });
+
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference().child("Reminder");
+
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                for(DataSnapshot ds: snapshot.getChildren()) {
+                    reminderInfo.add(ds.getKey());
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+            }
+        });
+
+        String cur = "Lower the hip!";
+        for (String s: reminderInfo) {
+            cur = cur + s + "\t";
+        }
+
+        popup.setMessage(cur);
+
+        AlertDialog alertDialog = popup.create();
+        alertDialog.show();
+
+
+
+
+    }
+
+    public void openTimer() {
+        Intent intent = new Intent(replay.this, settimer.class);
+        startActivity(intent);
+    }
 }
