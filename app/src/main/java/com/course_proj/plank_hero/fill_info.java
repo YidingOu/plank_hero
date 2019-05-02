@@ -1,6 +1,7 @@
 package com.course_proj.plank_hero;
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
@@ -8,6 +9,8 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -29,6 +32,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 import android.support.v7.app.AppCompatActivity;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.UUID;
 
@@ -38,9 +42,14 @@ public class fill_info extends AppCompatActivity {
      *              Upload Image           *
      ***************************************/
 
+    Context context;
+
     private Button btnChoose;
     private Button btnUpload;
     private ImageView imageView;
+    private ImageView imageViewNext;
+    private TextView greetingNext;
+
     private Uri filePath;
     private final int PICK_IMAGE_REQUEST = 71;
 
@@ -57,14 +66,20 @@ public class fill_info extends AppCompatActivity {
     private EditText height;
     private EditText weight;
     private EditText name;
+    String test;
 
-
+    byte[] byteArray;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.fill_info);
+
+        /**
+         * Try
+         */
+
 
         //height.setText(mEdit.getText().toString());
         //weight.setText(mEdit.getText().toString());
@@ -79,6 +94,14 @@ public class fill_info extends AppCompatActivity {
         mLogoutBtn = (Button) findViewById(R.id.log_out);
         mNext = (Button) findViewById(R.id.next);
         imageView = (ImageView) findViewById(R.id.imageView2);
+
+        View view = getLayoutInflater().inflate(R.layout.main_page, null);
+        imageViewNext = (ImageView) view.findViewById(R.id.imageView);
+        greetingNext = (TextView) view.findViewById(R.id.greeting);
+        greetingNext.setText("Hello WHO");
+
+
+
         storage = FirebaseStorage.getInstance();
         storageReference = storage.getReference();
         rdbtnMale = (RadioButton) findViewById(R.id.Male);
@@ -151,6 +174,10 @@ public class fill_info extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mAuth.signOut();
+                if (LoginManager.getInstance() != null) {
+                    Log.d("dddddd","not null" );
+
+                }
                 LoginManager.getInstance().logOut();
                 updateUI();
             }
@@ -172,6 +199,8 @@ public class fill_info extends AppCompatActivity {
 
     public void openStartMainPage() {
         Intent intent = new Intent(fill_info.this, main_page.class);
+        intent.putExtra("message_key", test);
+        intent.putExtra("picture", byteArray);
         startActivity(intent);
     }
 
@@ -193,7 +222,14 @@ public class fill_info extends AppCompatActivity {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
                 Bitmap resizedBitmap = Bitmap.createScaledBitmap(
                         bitmap, 100, 100, false);
+                Bitmap resizedBitmapNext = Bitmap.createScaledBitmap(
+                        bitmap, 60, 60, false);
                 imageView.setImageBitmap(resizedBitmap);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                resizedBitmapNext.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                byteArray = stream.toByteArray();
+
+
             } catch (IOException e) {
                 e.printStackTrace();
             }

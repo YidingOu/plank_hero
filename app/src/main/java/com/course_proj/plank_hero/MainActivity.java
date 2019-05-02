@@ -1,7 +1,11 @@
 package com.course_proj.plank_hero;
+import android.app.Activity;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.Button;
 import android.content.Intent;
@@ -19,6 +23,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -33,10 +40,14 @@ public class MainActivity extends AppCompatActivity {
      ***************************************/
     private CallbackManager mCallBackManger;
     private  Button mFacebookBtn;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
+
+
         /* *************************************
          *              Facebook                *
          ***************************************/
@@ -123,6 +134,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
+
+
 
 
     /* *************************************
