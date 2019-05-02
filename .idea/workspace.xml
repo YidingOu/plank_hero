@@ -17,10 +17,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/4.10.1/taskHistory/taskHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/gradle_models.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/course_proj/plank_hero/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/course_proj/plank_hero/MainActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/course_proj/plank_hero/fill_info.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/course_proj/plank_hero/fill_info.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/course_proj/plank_hero/main_page.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/course_proj/plank_hero/main_page.java" afterDir="false" />
     </list>
@@ -110,14 +107,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="813" />
+          <entry key="java" value="896" />
           <entry key="txt" value="12" />
           <entry key="xml" value="173" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="813" />
+          <entry key="JAVA" value="896" />
           <entry key="PLAIN_TEXT" value="12" />
           <entry key="XML" value="173" />
         </counts>
@@ -168,8 +165,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/course_proj/plank_hero/fill_info.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="284">
-              <caret line="211" column="87" selection-start-line="211" selection-start-column="87" selection-end-line="211" selection-end-column="87" />
+            <state relative-caret-position="301">
+              <caret line="211" column="34" selection-start-line="211" selection-start-column="34" selection-end-line="211" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4153#4765#0" expanded="true" />
@@ -182,8 +179,8 @@
                 <element signature="e#5801#5802#0" expanded="true" />
                 <element signature="e#6037#6396#0" expanded="true" />
                 <element signature="e#6395#6396#0" expanded="true" />
-                <element signature="e#6433#6589#0" expanded="true" />
-                <element signature="e#6588#6589#0" expanded="true" />
+                <element signature="e#6275#6448#0" expanded="true" />
+                <element signature="e#6447#6448#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -192,8 +189,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/course_proj/plank_hero/main_page.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="63" column="67" lean-forward="true" selection-start-line="63" selection-start-column="67" selection-end-line="63" selection-end-column="67" />
+            <state relative-caret-position="125">
+              <caret line="64" column="15" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2142#2295#0" expanded="true" />
@@ -251,6 +248,8 @@
       <find>skip</find>
       <find>imageView</find>
       <find>test</find>
+      <find>next</find>
+      <find>intent</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -298,9 +297,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="180" />
+    <option name="x" value="333" />
     <option name="y" value="23" />
-    <option name="width" value="1260" />
+    <option name="width" value="1073" />
     <option name="height" value="740" />
   </component>
   <component name="ProjectView">
@@ -525,10 +524,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="180" y="23" width="1260" height="740" extended-state="0" />
+    <frame x="333" y="23" width="1073" height="740" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.272578" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.32201746" />
       <window_info id="Structure" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Build Variants" order="4" side_tool="true" />
@@ -539,8 +539,8 @@
       <window_info anchor="bottom" id="Logcat" order="1" weight="0.32959184" />
       <window_info anchor="bottom" id="TODO" order="2" weight="0.32891566" />
       <window_info anchor="bottom" id="Debug" order="3" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="4" sideWeight="0.49917898" visible="true" weight="0.29938272" />
-      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.500821" side_tool="true" visible="true" weight="0.29938272" />
+      <window_info anchor="bottom" id="Terminal" order="4" sideWeight="0.49951503" visible="true" weight="0.29938272" />
+      <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.50048494" side_tool="true" visible="true" weight="0.29938272" />
       <window_info anchor="bottom" id="Version Control" order="6" show_stripe_button="false" />
       <window_info anchor="bottom" id="Build" order="7" sideWeight="0.49917898" weight="0.38425925" />
       <window_info anchor="bottom" id="Find" order="8" weight="0.32959184" />
@@ -750,13 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/course_proj/plank_hero/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-178">
-          <caret line="61" column="39" selection-start-line="61" selection-end-line="62" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fill_info.xml">
       <provider editor-type-id="text-editor" />
       <provider selected="true" editor-type-id="android-designer2" />
@@ -797,10 +790,17 @@
       </provider>
       <provider editor-type-id="android-designer2" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/course_proj/plank_hero/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-178">
+          <caret line="61" column="39" selection-start-line="61" selection-end-line="62" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/course_proj/plank_hero/fill_info.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="284">
-          <caret line="211" column="87" selection-start-line="211" selection-start-column="87" selection-end-line="211" selection-end-column="87" />
+        <state relative-caret-position="301">
+          <caret line="211" column="34" selection-start-line="211" selection-start-column="34" selection-end-line="211" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4153#4765#0" expanded="true" />
@@ -813,16 +813,16 @@
             <element signature="e#5801#5802#0" expanded="true" />
             <element signature="e#6037#6396#0" expanded="true" />
             <element signature="e#6395#6396#0" expanded="true" />
-            <element signature="e#6433#6589#0" expanded="true" />
-            <element signature="e#6588#6589#0" expanded="true" />
+            <element signature="e#6275#6448#0" expanded="true" />
+            <element signature="e#6447#6448#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/course_proj/plank_hero/main_page.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="63" column="67" lean-forward="true" selection-start-line="63" selection-start-column="67" selection-end-line="63" selection-end-column="67" />
+        <state relative-caret-position="125">
+          <caret line="64" column="15" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="15" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2142#2295#0" expanded="true" />

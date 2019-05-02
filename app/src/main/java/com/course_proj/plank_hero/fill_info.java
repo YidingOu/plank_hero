@@ -56,6 +56,7 @@ public class fill_info extends AppCompatActivity {
     FirebaseStorage storage;
     StorageReference storageReference;
 
+    private String str;
     private Button mLogoutBtn;
     private Button mNext;
     private FirebaseAuth mAuth;
@@ -186,6 +187,7 @@ public class fill_info extends AppCompatActivity {
         mNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                str = name.getText().toString();
                 openStartMainPage();
             }
         });
@@ -199,7 +201,7 @@ public class fill_info extends AppCompatActivity {
 
     public void openStartMainPage() {
         Intent intent = new Intent(fill_info.this, main_page.class);
-        intent.putExtra("message_key", test);
+        intent.putExtra("message_key", str);
         intent.putExtra("picture", byteArray);
         startActivity(intent);
     }
