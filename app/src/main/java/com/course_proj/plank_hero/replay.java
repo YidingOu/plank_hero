@@ -94,7 +94,6 @@ public class replay extends AppCompatActivity {
 
 
     public void showPopup() {
-
 //        AlertDialog.Builder popup = new AlertDialog.Builder(replay.this);
 //        popup.setTitle("Reminder");
 //
@@ -143,7 +142,7 @@ public class replay extends AppCompatActivity {
 //
 //        AlertDialog alertDialog = popup.create();
 //        alertDialog.show();
-//
+
         Intent intent = new Intent(replay.this, main_page.class);
         startActivity(intent);
 

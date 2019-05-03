@@ -11,14 +11,14 @@
 
     <Button
         android:id="@+id/close"
-        android:layout_width="249dp"
-        android:layout_height="32dp"
+        android:layout_width="197dp"
+        android:layout_height="21dp"
         android:layout_below="@+id/lowerMyHeadC"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginBottom="228dp"
+        android:layout_marginBottom="48dp"
         android:background="@color/colorGreen"
-        android:text="@string/Save_Change"
+        android:text="Dismiss"
         android:textColor="@color/colorPrimaryDark"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -26,27 +26,30 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="204dp"
-        android:layout_marginBottom="248dp"
-        android:text="TextView"
+    <ListView
+        android:id="@+id/newListView"
+        android:layout_width="304dp"
+        android:layout_height="263dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginEnd="81dp"
+        android:layout_marginBottom="20dp"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toTopOf="@+id/close"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <ListView
-        android:id="@+id/newListView"
-        android:layout_width="262dp"
-        android:layout_height="349dp"
-        tools:layout_editor_absoluteX="47dp"
-        tools:layout_editor_absoluteY="35dp">
+        app:layout_constraintStart_toStartOf="parent">
 
     </ListView>
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="205dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="68dp"
+        android:text="Reminder"
+        android:textColor="@android:color/white"
+        android:textSize="30dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/newListView"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

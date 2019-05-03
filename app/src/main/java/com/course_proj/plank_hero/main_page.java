@@ -23,7 +23,6 @@ public class main_page extends AppCompatActivity {
 
     private Button start_battle;
 
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -52,8 +51,6 @@ public class main_page extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.main_page);
 
-
-
         Bundle extras = getIntent().getExtras();
         byte[] byteArray = extras.getByteArray("picture");
 
@@ -64,7 +61,6 @@ public class main_page extends AppCompatActivity {
         TextView greetingNext = (TextView) findViewById(R.id.greeting);
         String name = extras.getString("message_key");
         greetingNext.setText("Hello "+name);
-
 
 
         mTextMessage = (TextView) findViewById(R.id.message);
@@ -92,3 +88,4 @@ public class main_page extends AppCompatActivity {
         startActivity(intent);
     }
 }
+
