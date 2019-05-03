@@ -64,7 +64,7 @@ public class replay extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showPopup();
+                openMainpage();
             }
         });
 
@@ -93,7 +93,8 @@ public class replay extends AppCompatActivity {
     }
 
 
-    public void showPopup() {
+//    public void showPopup() {
+//
 //        AlertDialog.Builder popup = new AlertDialog.Builder(replay.this);
 //        popup.setTitle("Reminder");
 //
@@ -117,11 +118,11 @@ public class replay extends AppCompatActivity {
 //        myRef = database.getReference().child("Reminder");
 //        String cur = "Lower the hip!\nStrengthen Back!";
 //
-//        /**
-//        if (myRef != null) {
-//            cur = "who";
-//        }
-//         */
+////        /**
+////        if (myRef != null) {
+////            cur = "who";
+////        }
+////         */
 //        myRef.addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(DataSnapshot snapshot) {
@@ -142,16 +143,12 @@ public class replay extends AppCompatActivity {
 //
 //        AlertDialog alertDialog = popup.create();
 //        alertDialog.show();
+//
+//
+//    }
 
-        Intent intent = new Intent(replay.this, main_page.class);
-        startActivity(intent);
-
-
-
-    }
-
-    public void openTimer() {
-        Intent intent = new Intent(replay.this, settimer.class);
+    public void openMainpage() {
+        Intent intent = new Intent(replay.this, plank_exercise.class);
         startActivity(intent);
     }
 }

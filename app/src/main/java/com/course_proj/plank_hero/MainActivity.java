@@ -1,11 +1,7 @@
 package com.course_proj.plank_hero;
-import android.app.Activity;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -24,9 +20,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,14 +29,12 @@ public class MainActivity extends AppCompatActivity {
      *              GENERAL                *
      ***************************************/
     private FirebaseAuth mAuth;
+    private Button skip;
     /* *************************************
      *              Facebook                *
      ***************************************/
     private CallbackManager mCallBackManger;
     private  Button mFacebookBtn;
-
-    private Button skip;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,10 +99,15 @@ public class MainActivity extends AppCompatActivity {
 
     private void updateUI() {
         Toast.makeText(MainActivity.this, "You are logged in",Toast.LENGTH_LONG).show();
-        Intent accountIntent = new Intent(MainActivity.this, fill_info.class);
+        Intent accountIntent = new Intent(MainActivity.this, main_page.class);
         startActivity(accountIntent);
         finish();
     }
+    private void openCustomPopUp() {
+        Intent intent = new Intent(MainActivity.this, fill_info.class);
+        startActivity(intent);
+    }
+
 
     private void handleFacebookAccessToken(AccessToken token) {
         Log.d(TAG, "handleFacebookAccessToken:" + token);
@@ -142,44 +138,4 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
     }
-
-
-
-
-    /* *************************************
-     *              Anonymously            *
-     ***************************************/
-
-    private void signInAnonymously() {
-        // [START signin_anonymously]
-        //showProgressDialog();
-        mAuth.signInAnonymously()
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Log.d(TAG, "signInAnonymously:success");
-                            FirebaseUser user = mAuth.getCurrentUser();
-                            updateUI();
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInAnonymously:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI();
-                        }
-                        // [START_EXCLUDE]
-                        //hideProgressDialog();
-                        // [END_EXCLUDE]
-                    }
-                });
-        // [END signin_anonymously]
-    }
-
-    private void openCustomPopUp() {
-        Intent intent = new Intent(MainActivity.this, custompopup.class);
-        startActivity(intent);
-    }
-
 }

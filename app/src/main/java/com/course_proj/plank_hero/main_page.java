@@ -15,6 +15,7 @@ import android.widget.TextView;
 import android.view.Window;
 import android.view.WindowManager;
 
+
 public class main_page extends AppCompatActivity {
 
     private TextView mTextMessage;
@@ -51,16 +52,19 @@ public class main_page extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.main_page);
 
-        Bundle extras = getIntent().getExtras();
-        byte[] byteArray = extras.getByteArray("picture");
+        if(getIntent() != null){
+            Bundle extras = getIntent().getExtras();
+            byte[] byteArray = extras.getByteArray("picture");
 
-        Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-        ImageView image = (ImageView) findViewById(R.id.imageView);
-        image.setImageBitmap(bmp);
+            Bitmap bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
+            ImageView image = (ImageView) findViewById(R.id.imageView);
+            image.setImageBitmap(bmp);
 
-        TextView greetingNext = (TextView) findViewById(R.id.greeting);
-        String name = extras.getString("message_key");
-        greetingNext.setText("Hello "+name);
+            TextView greetingNext = (TextView) findViewById(R.id.greeting);
+            String name = extras.getString("message_key");
+            greetingNext.setText("Hello "+name);
+        }
+
 
 
         mTextMessage = (TextView) findViewById(R.id.message);

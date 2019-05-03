@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +35,7 @@ public class custompopup extends AppCompatActivity {
     String[] default_item = new String[] {"1","2","3","4"};
     DatabaseReference databaseReference;
     List<String> itemList;
+    Button close;
 
 
     @Override
@@ -42,6 +44,11 @@ public class custompopup extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.custompopup);
+        DisplayMetrics dm = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int width = dm.widthPixels;
+        int height = dm.heightPixels;
+        getWindow().setLayout((int)(width*.8),(int)(height*.8));
 
         l1 = (ListView) findViewById(R.id.newListView);
         itemList = new ArrayList<String>();
@@ -71,6 +78,9 @@ public class custompopup extends AppCompatActivity {
             }
         });
 
+        for (String str:itemList) {
+            Log.d("str",str);
+        }
         ArrayAdapter arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,itemList){
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
@@ -82,13 +92,18 @@ public class custompopup extends AppCompatActivity {
             }
         };
         l1.setAdapter(arrayAdapter);
-
-
+        close = (Button)findViewById(R.id.close);
+        close.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openTimer();
+            }
+        });
 
     }
 
-    public void openForearmPlank() {
-        Intent intent = new Intent(custompopup.this, plank_content.class);
+    public void openTimer() {
+        Intent intent = new Intent(custompopup.this, settimer.class);
         startActivity(intent);
     }
 }

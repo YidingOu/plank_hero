@@ -273,26 +273,26 @@ public class fill_info extends AppCompatActivity {
     }
 
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-
-        /**
-         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-         .requestEmail()
-         .build();
-         mGoogleApiClient = new GoogleApiClient.Builder(this)
-         .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-         .build();
-         mGoogleApiClient.connect();
-         */
-
-        if (currentUser == null) {
-            updateUI();
-        }
-    }
+//    @Override
+//    public void onStart() {
+//        super.onStart();
+//        // Check if user is signed in (non-null) and update UI accordingly.
+//        FirebaseUser currentUser = mAuth.getCurrentUser();
+//
+//        /**
+//         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+//         .requestEmail()
+//         .build();
+//         mGoogleApiClient = new GoogleApiClient.Builder(this)
+//         .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+//         .build();
+//         mGoogleApiClient.connect();
+//         */
+//
+//        if (currentUser == null) {
+//            updateUI();
+//        }
+//    }
 
     private void updateUI() {
         Toast.makeText(fill_info.this, "You are logged out", Toast.LENGTH_LONG).show();
@@ -302,7 +302,7 @@ public class fill_info extends AppCompatActivity {
     }
 
     public void openStartPlanking() {
-        Intent intent = new Intent(fill_info.this, MainActivity.class);
+        Intent intent = new Intent(fill_info.this, main_page.class);
 
     }
 }
