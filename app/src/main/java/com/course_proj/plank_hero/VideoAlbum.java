@@ -2,6 +2,7 @@ package com.course_proj.plank_hero;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
@@ -22,6 +23,14 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.widget.VideoView;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.OnProgressListener;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
 public class VideoAlbum extends Activity {
 
     private EditText videoPathEditor = null;
@@ -34,6 +43,7 @@ public class VideoAlbum extends Activity {
 
     private Button pauseVideoButton = null;
     private Button setReminder;
+    private Button upLoadVideo;
 
     private Button continueVideoButton = null;
 
@@ -63,6 +73,7 @@ public class VideoAlbum extends Activity {
 
     // Save whether the video is paused or not.
     private boolean isVideoPaused = false;
+    private Uri filePath;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +84,9 @@ public class VideoAlbum extends Activity {
 
         // Init this example used video components.
         initVideoControls();
+
+
+
 
         setReminder = (Button) findViewById(R.id.set_reminde);
         setReminder.setOnClickListener(new View.OnClickListener() {
@@ -254,7 +268,22 @@ public class VideoAlbum extends Activity {
                 replayVideoButton.setEnabled(true);
             }
         });
+
+        upLoadVideo = (Button) findViewById(R.id.uploadVdieo);
+        upLoadVideo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadV(videoFileUri);
+            }
+        });
     }
+
+    /**
+     *
+     */
+    
+
+
 
     /*
       Initialise play video example controls.
@@ -453,4 +482,40 @@ public class VideoAlbum extends Activity {
         Intent intent = new Intent(VideoAlbum.this, replay.class);
         startActivity(intent);
     }
+
+
+
+
+    private void uploadV(Uri filePath) {
+        final ProgressDialog progressDialog = new ProgressDialog(this);
+        progressDialog.setTitle("Uploading...");
+        progressDialog.show();
+        String userUid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        StorageReference storageRef = FirebaseStorage.getInstance().getReference();
+        StorageReference videoRef = storageRef.child("/videos/" + userUid );
+        videoRef.putFile(filePath)
+                .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                        progressDialog.dismiss();
+                        Toast.makeText(VideoAlbum.this, "Uploaded", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        progressDialog.dismiss();
+                        Toast.makeText(VideoAlbum.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
+                    @Override
+                    public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
+                        double progress = (100.0 * taskSnapshot.getBytesTransferred() / taskSnapshot
+                                .getTotalByteCount());
+                        progressDialog.setMessage("Uploaded " + (int) progress + "%");
+                    }
+                });
+    }
+
 }
