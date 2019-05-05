@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
+    /**
 
     @Override
     public void onStart() {
@@ -96,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
             updateUI();
         }
     }
-
+*/
     private void updateUI() {
         Toast.makeText(MainActivity.this, "You are logged in",Toast.LENGTH_LONG).show();
         Intent accountIntent = new Intent(MainActivity.this, main_page.class);
