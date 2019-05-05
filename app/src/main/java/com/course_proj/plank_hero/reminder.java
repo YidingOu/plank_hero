@@ -39,31 +39,46 @@ public class reminder extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mDatabase = FirebaseDatabase.getInstance().getReference();
 
+
         saveButton = (Button) findViewById(R.id.saveChange);
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                DatabaseReference reminderDB = mDatabase.child("Reminder");
+                String uid = mAuth.getUid();
+                DatabaseReference reminderDB = mDatabase.child(uid).child("Reminder");
 
                 if(mlowerHipCheckBox.isChecked()) {
-                    reminderDB.child("1").setValue("Lower Hip");
+                    reminderDB.child("m1_lower_hip").setValue("Lower Hip");
+                } else {
+                    reminderDB.child("m1_lower_hip").setValue(null);
+
                 }
 
                 if(mputForwardCheckBox.isChecked()) {
-                    reminderDB.child("2").setValue("Put Forward Arm");
+                    reminderDB.child("m2_put_forward_arm").setValue("Put Forward Arm");
+                } else{
+                    reminderDB.child("m2_put_forward_arm").setValue(null);
+
                 }
 
                 if(mStrengthenThenCheckBox.isChecked()) {
-                    reminderDB.child("3").setValue("Strengthen Back");
+                    reminderDB.child("m3_strengthhen_back").setValue("Strengthen Back");
+                } else {
+                    reminderDB.child("m3_strengthhen_back").setValue(null);
+
                 }
 
                 if(mLiftMyHipCheckBox.isChecked()) {
-                    reminderDB.child("4").setValue("Lift Hip");
+                    reminderDB.child("m4_lifthip").setValue("Lift Hip");
+                } else {
+                    reminderDB.child("m4_lifthip").setValue(null);
+
                 }
 
                 if(mlowerMyHeadThirdCheckBox.isChecked()) {
                     reminderDB.child("5").setValue("Lower Head");
+                } else {
+                    reminderDB.child("5").setValue(null);
                 }
 
                 openReplay();
