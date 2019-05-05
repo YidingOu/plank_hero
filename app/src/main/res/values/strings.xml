@@ -97,7 +97,8 @@
     <string name="quickStart">Reminder</string>
     <string name="ok">OK</string>
     <string name="back">BACK</string>
-
+    <string name="privacy">Why We Collect Information From You: \n\nWe collect the information to provide you a better service. \n1. Provide our service. \n2. Maintain our service.\n3. Personalize service. \n\nWhat We Collect Information From You: \n1. Login information\n2. Physical data(height, weight)\n3. Recorded Video(default opt-out).\nfurther detail information please contact us </string>
+    <string name="contact">Contact Info: \nEmail:yidingo@andrew.cmu.edu\nPhone:412-xxx-xxxx</string>
 
 </resources>
 

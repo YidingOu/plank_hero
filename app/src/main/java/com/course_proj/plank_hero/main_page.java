@@ -51,7 +51,7 @@ public class main_page extends AppCompatActivity {
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.main_page);
-
+        /**
         if(getIntent() != null){
             Bundle extras = getIntent().getExtras();
             byte[] byteArray = extras.getByteArray("picture");
@@ -64,6 +64,7 @@ public class main_page extends AppCompatActivity {
             String name = extras.getString("message_key");
             greetingNext.setText("Hello "+name);
         }
+         */
 
 
 

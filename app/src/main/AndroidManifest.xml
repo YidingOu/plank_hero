@@ -22,6 +22,7 @@
             android:exported="true"></service>
         <activity android:name=".settimer" />
         <activity android:name=".replay" />
+        <activity android:name=".privacy_notice" />
 
         <activity android:name=".timer2" />
         <activity android:name=".fill_info" />
