@@ -67,15 +67,23 @@ public class plank_content extends Activity {
 
     private void openSetTimer() {
         openTimer();
+        /**
         mAuth = FirebaseAuth.getInstance();
+        if (mAuth.getUid()== null){
+            openTimer();
+        }
+        Log.d("hello",mAuth.getUid());
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                String uid = mAuth.getUid();
-                if (dataSnapshot.child(uid).hasChild("Reminder")) {
-                    openPopup();
+                Log.d("hello",mAuth.getUid());
+                if (dataSnapshot.hasChild("Reminder")) {
+                    Log.d("hello","why");
+                    openTimer();
+                    //openPopup();
                 } else{
                     openTimer();
+                    Log.d("hello","why2");
                 }
             }
 
@@ -84,7 +92,7 @@ public class plank_content extends Activity {
 
             }
         });
-
+         */
     }
 
     public void openPopup() {
