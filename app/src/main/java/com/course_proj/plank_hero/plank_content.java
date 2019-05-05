@@ -17,6 +17,7 @@ import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +35,7 @@ public class plank_content extends Activity {
     LinearLayout mainLayout;
     List<String> itemList;
     StringBuilder sb;
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,10 +66,13 @@ public class plank_content extends Activity {
     }
 
     private void openSetTimer() {
+        openTimer();
+        mAuth = FirebaseAuth.getInstance();
         databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if (dataSnapshot.hasChild("Reminder")) {
+                String uid = mAuth.getUid();
+                if (dataSnapshot.child(uid).hasChild("Reminder")) {
                     openPopup();
                 } else{
                     openTimer();
