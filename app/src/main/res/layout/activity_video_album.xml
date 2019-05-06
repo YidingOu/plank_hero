@@ -71,6 +71,14 @@
             android:text="Upload video"
             android:textColor="@android:color/black"
             />
+
+        <Button
+            android:id="@+id/downloadVdieo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Download video"
+            android:textColor="@android:color/black"
+            />
         <ProgressBar
             android:id="@+id/play_video_progressbar"
             style="@android:style/Widget.ProgressBar.Horizontal"
