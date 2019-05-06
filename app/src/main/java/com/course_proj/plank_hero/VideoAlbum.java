@@ -2,7 +2,9 @@ package com.course_proj.plank_hero;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.DownloadManager;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
@@ -10,6 +12,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.provider.ContactsContract;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -30,6 +33,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.net.URL;
 
 public class VideoAlbum extends Activity {
 
@@ -52,6 +57,12 @@ public class VideoAlbum extends Activity {
     private VideoView playVideoView = null;
 
     private ProgressBar videoProgressBar = null;
+
+    Button downLoad;
+    FirebaseStorage firebaseStorage;
+    StorageReference storageReference;
+    StorageReference ref;
+
 
     // Request code for user select video file.
     private static final int REQUEST_CODE_SELECT_VIDEO_FILE = 1;
@@ -87,6 +98,13 @@ public class VideoAlbum extends Activity {
 
 
 
+        downLoad = (Button) findViewById(R.id.downloadVdieo);
+        downLoad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                download();
+            }
+        });
 
         setReminder = (Button) findViewById(R.id.set_reminde);
         setReminder.setOnClickListener(new View.OnClickListener() {
@@ -516,6 +534,32 @@ public class VideoAlbum extends Activity {
                         progressDialog.setMessage("Uploaded " + (int) progress + "%");
                     }
                 });
+    }
+
+    public void download() {
+        storageReference = FirebaseStorage.getInstance().getReference();
+        ref = storageReference.child("");
+        ref.getDownloadUrl().addOnCanceledListener(new OnSuccessListener<Uri>() {
+           @Override
+           public void onSuccess(Uri uri) {
+               downLoadFiles(VideoAlbum.this, "Mobile", ".pdf", String uri);
+           }
+        }).addOnCanceledListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+
+            }
+        });
+    }
+
+    public void downLoadFiles(Context context, String fileName, String fileExtension, String destinationDirectory, String url) {
+        DownloadManager downloadManager = (DownloadManager) context.getSystemService(Context.DOWNLOAD_SERVICE);
+        Uri uri = Uri.parse(url);
+        DownloadManager.Request request = new DownloadManager.Request(uri);
+
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
+        request.setDestinationInExternalFilesDir(context, destinationDirectory, fileName + fileExtension);
+        downloadManager.enqueue(request);
     }
 
 }
